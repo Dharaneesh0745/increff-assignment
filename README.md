@@ -37,27 +37,32 @@ Follow these steps to set up and run the application locally.
    chatbot-env\Scripts\activate
    ```
 
-4. **Install dependencies**
+   # for linux\macOS
+   ```
+   source chatbot-env/bin/activate
+   ```
+
+5. **Install dependencies**
    ```
    pip install -r requirements.txt
    ```
 
-5. **Run the FastAPI server on port 5000**
+6. **Run the FastAPI server on port 5000**
    ```
    uvicorn main:app --host 0.0.0.0 --port 5000 --reload
    ```
 
-6. **Frontend**
+7. **Frontend**
    ```
    cd ../client
    ```
 
-7. **Install dependencies**
+8. **Install dependencies**
    ```
    npm install
    ```
 
-8. **Run the development server**
+9. **Run the development server**
    ```
    npm run dev
    ```
