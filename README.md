@@ -66,3 +66,6 @@ Follow these steps to set up and run the application locally.
    ```
    npm run dev
    ```
+
+**Note**
+If there is any connection issue with frontend means, backend and chatbot in backend works fine, you can access through POSTMAN API.
