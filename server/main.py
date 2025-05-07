@@ -1,5 +1,6 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 from pymongo import MongoClient
 from bson import ObjectId
 from chatbot import chatbot
@@ -8,9 +9,9 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:5173"],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["*"],  # allow all methods
     allow_headers=["*"],
 )
 
@@ -31,7 +32,11 @@ def serialize_objectid(item):
 async def index():
     return {"message": "Hello from FastAPI"}
 
-@app.get("/chat")
-async def chat(query: str = Query(..., description="User query")):
-    response = chatbot(query)
-    return {"response": response}
+# define pydantic model for POST body
+class ChatRequest(BaseModel):
+    message: str
+
+@app.post("/chat")
+async def chat(request: ChatRequest):
+    response = chatbot(request.message)
+    return {"reply": response}
