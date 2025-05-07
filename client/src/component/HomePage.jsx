@@ -18,7 +18,7 @@ export default function HomePage() {
 
     try {
       // Send the user's query to the backend
-      const res = await fetch('http://localhost:8000/chat', {
+      const res = await fetch('https://increff-assignment.onrender.com/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: input }),  // Sending message to backend
