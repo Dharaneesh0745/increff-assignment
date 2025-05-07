@@ -1,7 +1,7 @@
 fastapi==0.95.0
+uvicorn[standard]==0.22.0
 faiss-cpu==1.7.3
 google-generativeai==0.1.0
 python-dotenv==0.21.1
 sentence-transformers==2.2.2
-uvicorn==0.22.0
-pymongo
+pymongo==4.5.0
